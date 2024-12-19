@@ -6,13 +6,14 @@
 
 
 // Define GPIO Pins
-#define NC_LATCH_PIN        0
-#define NC_CLOCK_PIN        1
-#define NC_DATA_PIN         4
+#define NC_LATCH_PIN                0
+#define NC_CLOCK_PIN                1
+#define NC_DATA_PIN                 4
 
 // Constants
-#define LATCH_TIME_US       12
-#define CLOCK_DUTY_TIME     6
+#define LATCH_TIME_US               12
+#define POST_LATCH_WAIT_TIME_US     6
+#define CLOCK_DUTY_TIME_US          6
 
 
 void nesControllerInit()
@@ -58,11 +59,12 @@ void nesControllerInit()
 uint8_t nesControllerRead()
 {
 
-    // Set Latch to HIGH for 12µs
+    // Set Latch to HIGH for 12µs, wait for 6µs
     // Save Button States in Internal Shift Register of NES Controller
     gpio_set_level(NC_LATCH_PIN, 1);
     esp_rom_delay_us(LATCH_TIME_US);
     gpio_set_level(NC_LATCH_PIN, 0);
+    esp_rom_delay_us(POST_LATCH_WAIT_TIME_US);
 
     uint8_t allButtonStates = 0;
 
@@ -72,13 +74,18 @@ uint8_t nesControllerRead()
         
         // Set Clock signal to HIGH
         gpio_set_level(NC_CLOCK_PIN, 1);
+
+        // Read bit from serial data connection
         allButtonStates |= (gpio_get_level(NC_DATA_PIN) << cycle);
-        esp_rom_delay_us(CLOCK_DUTY_TIME);
+
+        // Wait for 6µs for 50% Duty Cycle, then set Clock to 0, then wait another 6µs for 50% Duty Cycle
+        esp_rom_delay_us(CLOCK_DUTY_TIME_US);
         gpio_set_level(NC_CLOCK_PIN, 0);
-        esp_rom_delay_us(CLOCK_DUTY_TIME);
+        esp_rom_delay_us(CLOCK_DUTY_TIME_US);
 
     }
-    
+
+    // Negate button states to reverse inverse true (results in 0 = not pressed, 1 = pressed)
     return ~allButtonStates;
 
 }
