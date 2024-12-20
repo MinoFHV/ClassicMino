@@ -37,4 +37,18 @@ Based on this, we can look at the pinout at the female end from the extension co
 
 ![NES Extension Cord Pinout](documentation/images/open_extension_cord_female_end.png)
 
+---
 
+# NES Tetris
+
+## Piece Selection Algorithm
+
+The piece selection algorithm implemented is equivalent to the one in Classic NES Tetris [[3]](https://meatfighter.com/nintendotetrisai/#Picking_Tetriminos) [[4]](https://www.reddit.com/r/Tetris/comments/6o6tvv/comment/dkf3uy1):
+* Roll a number between 0-7
+* If number is 7 OR previous rolled number is the same as the current rolled number: Reroll a number between 0-6 and keep the roll
+  * This is to add bias by preventing the same piece to be selected over and over again in bad scenarios
+* Otherwise keep the roll
+
+### Roll representation in Tetrominos
+
+[![Tetromino Representation in NES Classic Tetris](documentation/images/tetrominos.png)](https://meatfighter.com/nintendotetrisai/7.png)
