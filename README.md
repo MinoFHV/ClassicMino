@@ -8,11 +8,13 @@ The name "ClassicMino" was chosen to represent the idea of Classic NES Tetris us
 
 The following hardware components were used:
 
-* Soldering Equipment
 * [ESP32-C3-DevKitM-1](https://amzn.eu/d/9a1SwUs)
+* USB-A to Micro-USB-B Cable (Power for ESP32-C3-DevKitM-1)
 * [NES Extension Cord](https://www.micomputer.es/en/nes/450-super-nintendo-extension-cable.html)
-* Male-To-Male Pin Connectors
 * [Dollatek TFT-LCD-Display (240x240 IPS, 3.3V with SPI Interface)](https://www.amazon.de/gp/product/B07QJY5H9G/)
+* Male-To-Male Pin Connectors
+* Breadboard
+* Soldering Equipment
 
 ---
 
