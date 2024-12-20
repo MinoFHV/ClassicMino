@@ -1,6 +1,8 @@
 idf_component_register(
     SRCS
-        "main.c"
+        "src/main.c"
+        "src/tetris.c"
+        "components/utils.c"
         "components/nes_controller.c"
     INCLUDE_DIRS
         "includes"
