@@ -1,8 +1,8 @@
-# MinoBoy
+# ClassicMino
 
-MinoBoy is a project created as part of the "Introduction to Embedded Programming" classes, in order to acquire a grade.
+ClassicMino is a project created as part of the "Introduction to Embedded Programming" classes, in order to acquire a grade.
 
-The name "MinoBoy" was chosen to represent the idea of a GameBoy using an ESP32-C3-DevKitM-1 circuit board, the NES Controller for controls, and an LCD 240x240 IPS display to graphically render the game (though it's more NES-like than a GameBoy, but let's just roll with that for now).
+The name "ClassicMino" was chosen to represent the idea of Classic NES Tetris using an ESP32-C3-DevKitM-1 circuit board, the NES Controller for controls, and an LCD 240x240 IPS display to graphically render the game.
 
 ## Hardware Components
 
