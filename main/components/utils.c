@@ -1,4 +1,5 @@
 #include <stdint.h>
+#include <esp_log.h>
 
 #include "utils.h"
 
@@ -11,7 +12,7 @@ uint32_t getNextRNG()
 void printNESButtonBinary(uint8_t value) {
     char bin_str[9] = {0};
 
-    for (uint8_t i = 7; i >= 0; i--) {
+    for (int8_t i = 7; i >= 0; i--) {
         bin_str[7 - i] = (value >> i) & 1 ? '1' : '0';
     }
 
