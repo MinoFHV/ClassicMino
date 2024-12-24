@@ -1,9 +1,7 @@
-#include <freertos/FreeRTOS.h>
-#include <freertos/task.h>
-#include <esp_log.h>
+#include <esp_task_wdt.h>
+#include <stdbool.h>
 
 #include "nes_controller.h"
-#include "tetris.h"
 #include "utils.h"
 
 
@@ -11,12 +9,10 @@ void app_main(void)
 {
 
     nesControllerInit();
+    // lcdInit();
 
     while (1)
     { 
-
-        printNESButtonBinary(nesControllerRead());
-        vTaskDelay(2000 / portTICK_PERIOD_MS);
 
     }
 
