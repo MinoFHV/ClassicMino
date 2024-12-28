@@ -1,1 +1,1 @@
-#include "tetris_menu.c"
+#include "tetris_menu.h"
