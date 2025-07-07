@@ -6,7 +6,7 @@
 // Define GPIO Pins
 #define NC_LATCH_PIN                0
 #define NC_CLOCK_PIN                1
-#define NC_DATA_PIN                 4
+#define NC_DATA_PIN                 10
 
 // Constants
 #define LATCH_TIME_US               12
